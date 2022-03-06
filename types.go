@@ -8,7 +8,7 @@ type CompleteData struct {
 	Stocks   interface{} `json:"stocks"`
 }
 
-type SymbolData struct {
+type TickerData struct {
 	DayChange string  `json:"dayChange"`
 	Name      string  `json:"name"`
 	Open      float64 `json:"open"`

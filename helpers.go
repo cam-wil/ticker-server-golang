@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"math"
 	"os"
 	"strings"
 )
@@ -33,4 +34,28 @@ func SetEnvironmentVariables() {
 	fmt.Println(_listenPort)
 	fmt.Println(_remoteUrl)
 	fmt.Println(_remotePort)
+}
+
+func CalculatePrice(temp []TickerData) float64 {
+	var worth float64
+	for _, s := range temp {
+		worth += s.Price * float64(symbols[s.Symbol])
+	}
+	return worth
+}
+
+func CalcMax(t float64) {
+	if _max == 0 || t > _max {
+		_max = t
+	}
+}
+
+func CalcMin(t float64) {
+	if _min == 0 || t < _min {
+		_min = t
+	}
+}
+
+func RoundMoney(t float64) float64 {
+	return math.Round(t*100) / 100
 }

@@ -16,11 +16,9 @@ func HandleRoutes() {
 	log.Fatal(http.ListenAndServe(":"+_listenPort, router))
 }
 
-// routes
-
 func Complete(w http.ResponseWriter, r *http.Request) {
-	var tempData SymbolData
-	var tempArr []SymbolData
+	var tempData TickerData
+	var tempArr []TickerData
 	for sym, _ := range symbols {
 		rd := RequestData(RequestBuilder(sym))
 		err := json.Unmarshal(rd, &tempData)
@@ -30,24 +28,21 @@ func Complete(w http.ResponseWriter, r *http.Request) {
 		tempArr = append(tempArr, tempData)
 		fmt.Println(tempData)
 	}
-	tempComplete := CompleteData{Worth: calculatePrice(tempArr), MaxWorth: 2222.22, MinWorth: 1111.11, Stocks: tempArr}
+	tempWorth := RoundMoney(CalculatePrice(tempArr))
+	CalcMin(tempWorth)
+	CalcMax(tempWorth)
+
+	tempComplete := CompleteData{Worth: tempWorth, MaxWorth: _max, MinWorth: _min, Stocks: tempArr}
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(tempComplete)
 }
 
-func calculatePrice(temp []SymbolData) float64 {
-	var worth float64
-	for _, s := range temp {
-		worth += s.Price * float64(symbols[s.Symbol])
-	}
-	return worth
-}
-
+// string builder to make URL string
 func RequestBuilder(symbol string) string {
-	fmt.Println(_remoteUrl + ":" + _remotePort + "/raw/" + symbol + "?token=" + _token)
 	return _remoteUrl + ":" + _remotePort + "/raw/" + symbol + "?token=" + _token
 }
 
+// get data []byte from just a stock ticker string
 func RequestData(ticker string) []byte {
 	resp, e := http.Get(ticker)
 	if e != nil {
