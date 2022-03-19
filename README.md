@@ -8,13 +8,13 @@ Provide a way to simply keep track of stock data via API. This may be used by a 
 <br>
 
 ### Features
-- [] Individual users 
-- [] Add stock tickers and amounts to a database. 
-- [] Return current ticker data plus current worth as JSON
-- [] Keep a cached version (10 minutes) of each ticker
-- [] If ticker data is newer than 10 minutes, do not update via python scraper
-- [] Simple GUI to update database for user
-- [] Adding a ticker with 0 amount is allowed (for showing on DIY stock ticker)
+- [ ] Individual users 
+- [ ] Add stock tickers and amounts to a database. 
+- [ ] Return current ticker data plus current worth as JSON
+- [ ] Keep a cached version (10 minutes) of each ticker
+- [ ] If ticker data is newer than 10 minutes, do not update via python scraper
+- [ ] Simple GUI to update database for user
+- [ ] Adding a ticker with 0 amount is allowed (for showing on DIY stock ticker)
 <br>
 <br>
 #
@@ -62,12 +62,12 @@ REMOTEPORT=5000
 * coming soon
 #
 ## Milestone Overview
-- [] Sprint 1 - make a verison that works with the old nodejs version. NOTE: the format of json is not as above to make old DIY stock ticker work
-- [] Sprint 2 - create a new branch to start work on the above json formats, basic IP throttling?
-    - [] cleanup
-- [] Sprint 3 - setup mysql database, provide basic read functionality
-    - [] cleanup
-- [] Sprint 4 - full functionality based on users from database
-    - [] cleanup
+- [ ] Sprint 1 - make a verison that works with the old nodejs version. NOTE: the format of json is not as above to make old DIY stock ticker work
+- [ ] Sprint 2 - create a new branch to start work on the above json formats, basic IP throttling?
+    - [ ] cleanup
+- [ ] Sprint 3 - setup mysql database, provide basic read functionality
+    - [ ] cleanup
+- [ ] Sprint 4 - full functionality based on users from database
+    - [ ] cleanup
 
 More coming in the future
