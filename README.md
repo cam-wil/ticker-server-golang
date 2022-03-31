@@ -17,7 +17,7 @@ Provide a way to simply keep track of stock data via API. This may be used by a 
 - [ ] Adding a ticker with 0 amount is allowed (for showing on DIY stock ticker)
 <br>
 <br>
-#
+
 ## Technicals
 
 ### Total json format

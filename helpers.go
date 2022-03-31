@@ -8,6 +8,7 @@ import (
 	"strings"
 )
 
+// environment variable setup
 func GetEnvironmentVariables() {
 	fileData, err := ioutil.ReadFile(".env")
 	if err != nil {
