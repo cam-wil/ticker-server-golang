@@ -62,7 +62,7 @@ REMOTEPORT=5000
 * coming soon
 #
 ## Milestone Overview
-- [ ] Sprint 1 - make a verison that works with the old nodejs version. NOTE: the format of json is not as above to make old DIY stock ticker work
+- [x] Sprint 1 - make a verison that works with the old nodejs version. NOTE: the format of json is not as above to make old DIY stock ticker work
 - [ ] Sprint 2 - create a new branch to start work on the above json formats, basic IP throttling?
     - [ ] cleanup
 - [ ] Sprint 3 - setup mysql database, provide basic read functionality
